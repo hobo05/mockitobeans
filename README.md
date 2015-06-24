@@ -13,7 +13,9 @@ mockitobeans started when I was looking for a way to use [mockito](http://mockit
 
 ```java
 @Configuration
-@MockedBeans(mockClasses={PersonDao.class}, spyClasses={PersonService.class}, scope="my-custom-scope")
+@MockedBeans(mockClasses={PersonDao.class},
+ 	    spyClasses={PersonService.class},
+ 	    scope="my-custom-scope")
 public class AppConfig {}
 ```
 
@@ -45,10 +47,19 @@ public class PersonService {
 	private AddressDao addressDao;
 }
 ```
-you will be forced to declare both personDao and addressDao. To circumvent this, but still retain the autowiring capabilities, you can add the DisableAutowireRequireInitializer to stop this behavior
+you will be forced to declare both personDao and addressDao. To circumvent this, but still retain the autowiring capabilities, you can add DisableAutowireRequireInitializer which will cause the AutowiredAnnotationBeanPostProcessor to not throw an error when a bean is not found for autowiring
 
 ```java
 @ContextConfiguration(initializers=DisableAutowireRequireInitializer.class)
+```
+
+Now, when you declare you application context and you're missing one of the dependencies, no errors will occur.
+
+```java
+@Configuration
+// You don't even have to declare ANY of your dependencies at all!
+@MockedBeans(mockClasses={PersonService.class})
+public class AppConfig {}
 ```
 
 ## Reference
