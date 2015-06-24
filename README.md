@@ -13,7 +13,7 @@ mockitobeans started when I was looking for a way to use [mockito](http://mockit
 
 ```java
 @Configuration
-@MockedBeans(mockClasses={PersonDao.class}, spyClasses={PersonService.class})
+@MockedBeans(mockClasses={PersonDao.class}, spyClasses={PersonService.class}, scope="my-custom-scope")
 public class AppConfig {}
 ```
 
