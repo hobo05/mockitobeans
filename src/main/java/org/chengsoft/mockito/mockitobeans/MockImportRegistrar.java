@@ -12,7 +12,7 @@ import org.springframework.core.type.AnnotationMetadata;
  * @author tcheng
  *
  */
-public class MockImportRegistar implements ImportBeanDefinitionRegistrar {
+public class MockImportRegistrar implements ImportBeanDefinitionRegistrar {
 	
 	private String scope;
 	private boolean primary;

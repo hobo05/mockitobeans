@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Import;
  * @author tcheng
  *
  */
-@Import(MockImportRegistar.class)
+@Import(MockImportRegistrar.class)
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
