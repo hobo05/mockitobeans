@@ -27,11 +27,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * allow {@link Autowired} to require to resolve
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes=AutowireDependencyMocksTest.class,
+@ContextConfiguration(classes=PassingAutowireDependencyMocksTest.class,
 					initializers=DisableAutowireRequireInitializer.class)
 @Configuration
 @MockedBeans(mockClasses={PersonDao.class}, spyClasses={PersonService.class})
-public class AutowireDependencyMocksTest {
+public class PassingAutowireDependencyMocksTest {
 	
 	@Autowired
 	private PersonService personService;
