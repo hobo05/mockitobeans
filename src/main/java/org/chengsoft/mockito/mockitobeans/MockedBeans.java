@@ -38,4 +38,10 @@ public @interface MockedBeans {
 	 * @return
 	 */
 	String scope() default "";
+	
+	/**
+	 * Set the bean as a primary bean to override existing beans
+	 * @return
+	 */
+	boolean primary() default true;
 }
